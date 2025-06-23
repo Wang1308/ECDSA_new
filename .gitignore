@@ -1,0 +1,24 @@
+# Vivado build & sim outputs
+*.jou
+*.log
+*.str
+*.wdb
+*.pb
+*.bit
+*.dcp
+*.bin
+*.vcd
+*.xml
+*.json
+*.bak
+*.tmp
+*.zip
+*.tar
+*.tar.gz
+*.dat
+
+# Vivado folders
+*.runs/
+*.sim/
+*.cache/
+*.webtalk/
