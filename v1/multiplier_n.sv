@@ -43,7 +43,8 @@ always_comb begin
 		Start: Next_State = setB;
 		setB:
 		begin
-			if((b_out << 1) >= {2'b00,params.n})
+    		if((b_out << 1) >= {2'b00,params.n})
+
 				Next_State = redB;
 			else
 				Next_State = setC;
@@ -63,7 +64,10 @@ always_comb begin
 				Next_State = setB;
 		end
 		Finish:
-			Next_State = Finish;
+		begin
+                Next_State = Finish;
+        end
+
 		default: ;
 	endcase
 
@@ -95,7 +99,7 @@ always_comb begin
 		end
 		Start:
 		begin
-			if(a[0] == 1)
+		    if(a[0] == 1)
 				c_in = b_out;
 			else
 				c_in = 258'b0;

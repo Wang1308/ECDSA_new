@@ -15,27 +15,27 @@ module ecdsa_block(
 	input logic [255:0] in_S,
 	output logic [255:0] out_point_x,
 	output logic [255:0] out_point_y,
-	output logic  done_point,
+	output logic  done_point
 	//modInv
-	input logic in_modInv_reset,
-	input logic [255:0] in_modInv,
-	output logic [255:0] out_modInv,
-	output logic  done_modInv,
-	//multmod
-	input logic in_reset_modmult,
-	input logic [255:0] in_a_modmult, 
-	input logic [255:0] in_b_modmult,
-	output logic done_modmult,
-	output logic [255:0] out_modmult,
-	//add point a != b
-	input logic in_reset_add,
-	input logic [255:0] in_p_x,
-	input logic [255:0] in_p_y,
-	input logic [255:0] in_q_x,
-	input logic [255:0] in_q_y,
-	output logic done_add,
-	output logic [255:0] out_r_x,
-	output logic [255:0] out_r_y
+//	input logic in_modInv_reset,
+//	input logic [255:0] in_modInv,
+//	output logic [255:0] out_modInv,
+//	output logic  done_modInv,
+//	//multmod
+//	input logic in_reset_modmult,
+//	input logic [255:0] in_a_modmult, 
+//	input logic [255:0] in_b_modmult,
+//	output logic done_modmult,
+//	output logic [255:0] out_modmult,
+//	//add point a != b
+//	input logic in_reset_add,
+//	input logic [255:0] in_p_x,
+//	input logic [255:0] in_p_y,
+//	input logic [255:0] in_q_x,
+//	input logic [255:0] in_q_y,
+//	output logic done_add,
+//	output logic [255:0] out_r_x,
+//	output logic [255:0] out_r_y
 );
 
     // Kết nối với module cấu hình tham số
@@ -60,36 +60,36 @@ gen_point init_point (
 	.out_point_x(out_point_x),
 	.Done(done_point)
 );
-modular_inverse_n modular_inverse_n (
-	.clk(clk), 
-	.Reset(in_modInv_reset),
-	.in(in_modInv),
-	.params(curve_params),
-	.out(out_modInv),
-	.Done(done_modInv)
-);
-multiplier_n multmod_n (
-	.clk(clk), 
-	.Reset(in_reset_modmult),
-	.a(in_a_modmult), 
-	.b(in_b_modmult),
-	.params(curve_params),
-	.Done(done_modmult),
-	.product(out_modmult)
-);
-point_add point_add (
-	.clk(clk), 
-	.Reset(in_reset_add),
-	//input  	curve_point_t 	P, Q,
-	.P_x(in_p_x),
-	.P_y(in_p_y),
-	.Q_x(in_q_x),
-	.Q_y(in_q_y),
-	.params(curve_params),
-	.Done(done_add),
-	//output 	curve_point_t 	R
-	.R_x(out_r_x),
-	.R_y(out_r_y)
-);
+//modular_inverse_n modular_inverse_n (
+//	.clk(clk), 
+//	.Reset(in_modInv_reset),
+//	.in(in_modInv),
+//	.params(curve_params),
+//	.out(out_modInv),
+//	.Done(done_modInv)
+//);
+//multiplier_n multmod_n (
+//	.clk(clk), 
+//	.Reset(in_reset_modmult),
+//	.a(in_a_modmult), 
+//	.b(in_b_modmult),
+//	.params(curve_params),
+//	.Done(done_modmult),
+//	.product(out_modmult)
+//);
+//point_add point_add (
+//	.clk(clk), 
+//	.Reset(in_reset_add),
+//	//input  	curve_point_t 	P, Q,
+//	.P_x(in_p_x),
+//	.P_y(in_p_y),
+//	.Q_x(in_q_x),
+//	.Q_y(in_q_y),
+//	.params(curve_params),
+//	.Done(done_add),
+//	//output 	curve_point_t 	R
+//	.R_x(out_r_x),
+//	.R_y(out_r_y)
+//);
 endmodule
 
