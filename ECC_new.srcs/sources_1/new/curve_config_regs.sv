@@ -18,8 +18,8 @@ module curve_config_regs (
     logic [255:0] reg_p, reg_n, reg_a, reg_b;
     logic [255:0] reg_gx, reg_gy;
 
-    always_ff @(negedge clk or negedge rst_n) begin
-        if (!rst_n) begin
+    always_ff @(negedge clk) begin
+        if (rst_n) begin
             reg_p  <= '0;
             reg_n  <= '0;
             reg_a  <= '0;

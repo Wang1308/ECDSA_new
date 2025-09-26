@@ -90,14 +90,14 @@ module ecdsa_block_tb;
   initial begin
     // Khởi tạo
         clk = 0;
-        rst_n = 0;
+        rst_n = 1;
         wr_en = 0;
         in_gen_point_reset = 0;
 //        in_modInv_reset = 0;
 //        in_reset_modmult = 0;
 //        in_reset_add = 0;
 
-        #20 rst_n = 1;
+        #20 rst_n = 0;
 
         // Khởi tạo tham số SECP256K1
         curve_params.p = 256'hFFFFFFFF00000001000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFF;
